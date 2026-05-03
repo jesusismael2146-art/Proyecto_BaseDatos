@@ -7,15 +7,70 @@
     
     <link rel="stylesheet" href="estilos.css">
 </head>
-<body>
-    <div class="contenedor">
-        <h2>Agregar Registro</h2>
-        <form action="/guardar" method="POST">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Escribe un nombre..." required>
+<div class="container">
+    <h1>🔭 Sistema del Observatorio</h1>
+    
+ <section>
+        <h2 id="titulo-formulario">Registrar Nueva Observación</h2>
+        <form id="formulario-bitacora">
+            <input type="hidden" name="id_observacion" id="id_observacion">
             
-            <button type="submit">Guardar</button>
+            <label for="id_astronomo">Astrónomo a cargo:</label>
+            <select name="id_astronomo" id="id_astronomo" required>
+                <option value="1">Stephen Hawking</option>
+                <option value="2">Carl Sagan</option>
+                <option value="3">Neil deGrasse Tyson</option>
+                <option value="4">Julieta Fierro</option>
+            </select>
+
+            <label for="id_telescopio">Telescopio utilizado:</label>
+            <select name="id_telescopio" id="id_telescopio" required>
+                <option value="1">Hubble</option>
+                <option value="2">James Webb</option>
+                <option value="3">Keck I</option>
+                <option value="4">VLT</option>
+            </select>
+
+            <label for="id_cuerpo">Cuerpo Celeste detectado:</label>
+            <select name="id_cuerpo" id="id_cuerpo" required>
+                <option value="1">Kepler-186f</option>
+                 <option value="2">Andrómeda</option>
+                 <option value="3">Orión</option>
+                 <option value="4">Sagitario A*</option>
+                 <option value="5">Betelgeuse</option>
+            </select>
+
+            <label for="hallazgo">Notas del Hallazgo:</label>
+            <textarea name="hallazgo" id="hallazgo" required></textarea>
+
+            <button type="submit" id="btn-guardar">🚀 Guardar en Base de Datos</button>
+            <button type="button" id="btn-cancelar" style="display:none;" onclick="cancelarEdicion()">❌ Cancelar Edición</button>
         </form>
-    </div>
+    </section>
+    <hr>
+
+    <section>
+        <h2>📜 Registro Histórico</h2>
+       
+        <div style="overflow-x: auto;">
+            <table id="tabla-observaciones">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Astrónomo</th>
+                        <th>Telescopio</th>
+                        <th>Cuerpo Celeste</th>
+                        <th>Hallazgo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<script src="/script.js"></script>
+
 </body>
 </html>

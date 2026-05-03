@@ -1,38 +1,109 @@
-
-/* public/style.css */
-
-body { 
-    font-family: Arial, sans-serif; 
-    margin: 40px; 
-    background-color: #f4f4f9; 
+/* Configuración General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0d17; /* Azul muy oscuro espacial */
+    color: #ffffff;
+    margin: 0;
+    padding: 1.25rem; /* 20px / 16 */
+    display: flex;
+    justify-content: center;
 }
 
-.contenedor { 
-    background: white; 
-    padding: 20px; 
-    border-radius: 8px; 
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
-    max-width: 400px; 
+.container {
+    max-width: 50rem; /* 800px / 16 */
+    width: 100%;
+    background: #1a1c2c;
+    padding: 1.25rem;
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.5);
 }
 
-input, button { 
-    display: block; 
-    width: 100%; 
-    margin-top: 10px; 
-    margin-bottom: 15px; 
-    padding: 1rem; 
-    box-sizing: border-box; 
+h1 {
+    color: #4ecca3; /* Verde neón astronómico */
+    text-align: center;
+    margin-bottom: 1.875rem;
 }
 
-button { 
-    background-color: #28a745; 
-    color: white; 
-    border: none; 
-    cursor: pointer; 
-    font-weight: bold; 
-    border-radius: 4px; 
+h2 {
+    color: #a2a8d3;
+    margin-top: 2.5rem;
 }
 
-button:hover { 
-    background-color: #218838; 
+/* Estilo del Formulario (CREATE) */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem; /* 15px */
+}
+
+label {
+    font-weight: bold;
+    color: #a2a8d3;
+}
+
+select, textarea, button {
+    padding: 0.625rem;
+    border-radius: 0.3125rem;
+    border: none;
+    font-size: 1rem;
+}
+
+textarea {
+    height: 6.25rem; /* 100px */
+    resize: none;
+    background-color: #e4e7ed;
+}
+
+button {
+    background-color: #4ecca3;
+    color: #0b0d17;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.625rem;
+}
+
+button:hover {
+    background-color: #45b291;
+}
+
+hr {
+    border: 0;
+    border-top: 0.0625rem solid #303443;
+    margin: 1.875rem 0;
+}
+
+/* Estilo de la Tabla (READ) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.25rem;
+    background-color: #1a1c2c;
+}
+
+th, td {
+    border: 0.0625rem solid #303443;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: #4ecca3;
+    color: #0b0d17;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+tr:nth-child(even) {
+    background-color: #24273d;
+}
+
+tr:hover {
+    background-color: #2d314d;
+}
+
+/* Botón de actualización manual */
+.btn-refresh {
+    background-color: #a2a8d3;
+    margin-bottom: 0.625rem;
 }
