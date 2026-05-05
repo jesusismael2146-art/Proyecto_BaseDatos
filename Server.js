@@ -23,8 +23,11 @@ app.use(express.static('public'));
 app.get('/bitacora', async (req, res) => {
     try {
         const consulta = `
-            SELECT b.id_observacion, b.fecha_observacion, a.nombre_astronomo, 
-                   t.nombre_telescopio, c.nombre AS cuerpo_celeste, b.hallazgo
+            SELECT b.id_observacion, b.fecha_observacion, 
+                   b.id_astronomo, a.nombre_astronomo, 
+                   b.id_telescopio, t.nombre_telescopio, 
+                   b.id_cuerpo, c.nombre AS cuerpo_celeste, 
+                   b.hallazgo
             FROM Bitacora_Observaciones b
             JOIN Astronomos a ON b.id_astronomo = a.id_astronomo
             JOIN Telescopios t ON b.id_telescopio = t.id_telescopio
