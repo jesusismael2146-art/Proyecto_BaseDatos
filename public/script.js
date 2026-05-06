@@ -11,7 +11,7 @@ async function cargarBitacora() {
 
         datos.forEach(obs => {
             const fila = document.createElement('tr');
-            // Necesitamos acceder a los IDs para llenar el formulario al editar
+           
            fila.innerHTML = `
                 <td>${new Date(obs.fecha_observacion).toLocaleDateString()}</td>
                 <td>${obs.nombre_astronomo}</td>
@@ -30,7 +30,7 @@ async function cargarBitacora() {
     }
 }
 
-// 2. Función para ELIMINAR un registro (DELETE)
+// Funcion para ELIMINAR un registro (DELETE)
 async function eliminarRegistro(id) {
     if (confirm('¿Estás seguro de que quieres eliminar este hallazgo estelar?')) {
         const respuesta = await fetch(`/eliminar-observacion/${id}`, { method: 'DELETE' });
@@ -40,7 +40,7 @@ async function eliminarRegistro(id) {
     }
 }
 
-// 3. Preparar el formulario para EDITAR (Llenar campos)
+// Preparar el formulario para EDITAR (Llenar campos)
 function prepararEdicion(id_obs, id_astronomo, id_telescopio, id_cuerpo, hallazgo) {
     document.getElementById('id_observacion').value = id_obs;
     document.getElementById('id_astronomo').value = id_astronomo;
@@ -77,9 +77,8 @@ document.getElementById('formulario-bitacora').addEventListener('submit', async 
     };
 
     let ruta = '/guardar-observacion';
-    let metodo = 'POST'; // Por defecto es CREATE
+    let metodo = 'POST'; 
 
-    // Si hay un ID en el campo oculto, es un UPDATE
     if (id_obs) {
         ruta = `/actualizar-observacion/${id_obs}`;
         metodo = 'PUT';
@@ -101,6 +100,4 @@ document.getElementById('formulario-bitacora').addEventListener('submit', async 
     }
 });
 
-// Nota importante: Para que el CREATE funcione con JSON, necesitamos ajustar el server.js
-// Ejecutar la carga al abrir la página
 window.onload = cargarBitacora;
