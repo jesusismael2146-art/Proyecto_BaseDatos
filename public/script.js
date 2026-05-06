@@ -12,12 +12,12 @@ async function cargarBitacora() {
         datos.forEach(obs => {
             const fila = document.createElement('tr');
             // Necesitamos acceder a los IDs para llenar el formulario al editar
-            fila.innerHTML = `
+           fila.innerHTML = `
                 <td>${new Date(obs.fecha_observacion).toLocaleDateString()}</td>
                 <td>${obs.nombre_astronomo}</td>
                 <td>${obs.nombre_telescopio}</td>
                 <td>${obs.cuerpo_celeste}</td>
-                <td>${obs.hallazgo}</td>
+                <td>${obs.categoria}</td> <td>${obs.hallazgo}</td>
                 <td>
                     <button class="btn-edit" onclick="prepararEdicion(${obs.id_observacion}, ${obs.id_astronomo}, ${obs.id_telescopio}, ${obs.id_cuerpo}, '${obs.hallazgo}')">✏️ Editar</button>
                     <button class="btn-delete" onclick="eliminarRegistro(${obs.id_observacion})">🗑️ Borrar</button>

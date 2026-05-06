@@ -26,12 +26,14 @@ app.get('/bitacora', async (req, res) => {
             SELECT b.id_observacion, b.fecha_observacion, 
                    b.id_astronomo, a.nombre_astronomo, 
                    b.id_telescopio, t.nombre_telescopio, 
-                   b.id_cuerpo, c.nombre AS cuerpo_celeste, 
+                   b.id_cuerpo, c.nombre AS cuerpo_celeste,
+                   cat.nombre_categoria AS categoria, -- SOLICITAMOS LA CATEGORÍA
                    b.hallazgo
             FROM Bitacora_Observaciones b
             JOIN Astronomos a ON b.id_astronomo = a.id_astronomo
             JOIN Telescopios t ON b.id_telescopio = t.id_telescopio
             JOIN Cuerpos_Celestes c ON b.id_cuerpo = c.id_cuerpo
+            JOIN Categorias cat ON c.id_categoria = cat.id_categoria -- NUEVO PUENTE
             ORDER BY b.fecha_observacion DESC;
         `;
         const resultado = await pool.query(consulta);
